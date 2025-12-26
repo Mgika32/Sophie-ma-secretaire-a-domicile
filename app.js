@@ -1,7 +1,7 @@
 // =================================================================
 // CONFIGURATION : REMPLACEZ PAR VOTRE URL GOOGLE APPS SCRIPT
 // =================================================================
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzr19u4a3sMSu8CW-Mmb4GoZ8uucrKfpmcVcsd4xUBgvWoG3qLjpQmfkedaczVeMzBN/exec"; 
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwP1CWXgGqlX-lmZGU5Px0rJ-aKxhmflW4V9oFMsC_b6cTzDtqzAxv4UMW5PWk6b0HJcw/exec"; 
 
 // =================================================================
 // LOGIQUE DU DASHBOARD (dashboard.html)
@@ -219,4 +219,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
