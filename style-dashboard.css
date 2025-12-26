@@ -1,0 +1,269 @@
+/* --- Variables et Reset --- */
+:root {
+    /* Couleurs France Service (DSFR) */
+    --primary: #000091; /* Bleu France */
+    --primary-dark: #000074;
+    --primary-light: #6A6AF4; /* Clair pour les hover/focus */
+    --secondary: #f3f6f9; /* Gris très clair fond */
+    --white: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Styles de base pour le Dashboard */
+body {
+    /* Nouvelle police : alignée sur l'esprit Marianne (polices système) */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+    background-color: var(--secondary);
+    color: var(--text-dark);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 1.7rem; /* Légèrement plus grand */
+    font-weight: 800; /* Plus gras */
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span { 
+    background: var(--white); 
+    color: var(--primary); 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 1.2rem; /* Taille du texte FS */
+}
+
+.menu-item {
+    padding: 14px 15px; /* Plus de padding */
+    color: rgba(255,255,255,0.85); /* Plus clair */
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Plus d'espace entre icône et texte */
+}
+.menu-item i {
+    font-size: 1rem;
+}
+
+.menu-item:hover, .menu-item.active {
+    background: rgba(255,255,255,0.2); /* Fond plus visible */
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* --- CONTENU PRINCIPAL --- */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 { 
+    font-size: 2rem; /* Titre plus grand */
+    font-weight: 700;
+    color: var(--primary); /* Utilisation du Bleu France pour les titres */
+}
+
+.action-bar {
+    display: flex;
+    gap: 1rem;
+}
+
+.refresh-btn, .export-btn {
+    background: var(--primary); /* Boutons primaires en bleu */
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.refresh-btn:hover, .export-btn:hover { 
+    background: var(--primary-dark); 
+}
+
+/* --- CARTES STATISTIQUES --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px; /* Bords légèrement adoucis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Ombre plus douce */
+    border-left: 4px solid var(--primary);
+    transition: transform 0.2s;
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-card.stat-traffic { border-color: var(--primary-light); }
+.stat-card.stat-unique { border-color: #f97316; }
+
+.stat-title { 
+    color: var(--text-light); 
+    font-size: 0.9rem; 
+    margin-bottom: 0.5rem; 
+    text-transform: uppercase; /* Donne un aspect plus administratif */
+    font-weight: 600;
+}
+.stat-value { 
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    color: var(--text-dark); 
+}
+
+/* --- FILTRES ET RECHERCHE --- */
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+.filter-bar input, .filter-bar select {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: var(--secondary); /* Fond des champs légèrement gris */
+}
+
+/* --- TABLEAU --- */
+.table-container {
+    background: var(--white);
+    border-radius: 8px; /* Bords légèrement adoucis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); 
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+
+thead { 
+    background: #e2e8f0; /* Fond d'en-tête légèrement plus foncé */
+    border-bottom: 2px solid #d1d5db; 
+}
+
+th {
+    text-align: left;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem; /* Légèrement plus grand */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dark); /* Texte d'en-tête plus lisible */
+    font-weight: 700;
+}
+
+td {
+    padding: 1rem 1.5rem; /* Réduire un peu le padding pour compacter */
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover { background-color: #f8fafc; }
+
+/* BADGES */
+.badge {
+    padding: 4px 10px;
+    border-radius: 4px; /* Carré/rectangulaire comme le DSFR */
+    font-size: 0.8rem; /* Légèrement plus grand */
+    font-weight: 700;
+    display: inline-block;
+}
+.badge-Nouveau { background: #cce7ff; color: #000091; } /* Bleu clair DSFR */
+.badge-Traitée { background: #d1fae5; color: #065f46; }
+.badge-Archivée { background: #fef3c7; color: #92400e; }
+
+/* Priorité Styles */
+.prio-Haute { 
+    color: var(--danger); 
+    font-weight: 700; 
+    /* Ajout d'une ombre douce pour l'emphase */
+    text-shadow: 0 0 2px rgba(220, 38, 38, 0.2);
+}
+.prio-Moyenne { color: var(--warning); }
+.prio-Basse { color: var(--success); }
+
+/* Select pour Priorité */
+.priority-select {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 0.8rem;
+    background: white;
+    cursor: pointer;
+}
+
+/* Actions */
+.action-button {
+    background: var(--primary-light); /* Bouton d'action en bleu clair */
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 5px;
+    display: block;
+}
+.action-button:hover { background: var(--primary); }
+
+/* Loading */
+#loading { text-align: center; padding: 2rem; color: var(--text-light); }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .action-bar { flex-direction: column; gap: 0.5rem; }
+}
+
+.action-button.delete-button {
+    background: var(--danger) !important;
+}
+.action-button.delete-button:hover {
+    background: #a91b1b !important; /* Rouge plus foncé au survol */
+}

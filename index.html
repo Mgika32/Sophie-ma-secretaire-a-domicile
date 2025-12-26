@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Sophie - Guichet unique pour vos démarches administratives : état civil, emploi, santé, retraite.">
+    <title>Admin Sophie - Votre Guichet Unique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> </head>
+<body class="site-public"> <header class="header" role="banner">
+        <div class="nav-container">
+            <a href="#" class="logo-site">
+                <span class="logo-icon" aria-hidden="true">AS</span>
+                <span>Admin Sophie</span>
+            </a>
+            <nav role="navigation" aria-label="Menu principal">
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#infos">Informations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="accueil" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title">Votre Guichet Unique de Proximité</h1>
+                <p>Accédez à tous vos services publics en un seul lieu. Simplifiez vos démarches administratives avec Admin Sophie.</p>
+                <a href="#services" class="cta-button">Découvrir nos services</a>
+            </div>
+        </section>
+
+        <section class="section" id="services" aria-labelledby="services-title">
+            <h2 id="services-title" class="section-title">Nos Services</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <i class="service-icon fa-solid fa-file-lines" aria-hidden="true"></i> <h3>État Civil</h3>
+                    <p>Demande d'actes de naissance, mariage, décès. Accompagnement pour toutes vos démarches.</p>
+                </article>
+                <article class="service-card">
+                    <i class="service-icon fa-solid fa-briefcase" aria-hidden="true"></i> <h3>Emploi & Formation</h3>
+                    <p>Inscription France Travail (Pôle Emploi), recherche d'emploi et formation professionnelle.</p>
+                </article>
+                <article class="service-card">
+                    <i class="service-icon fa-solid fa-heart-pulse" aria-hidden="true"></i> <h3>Santé & Assurance</h3>
+                    <p>Carte Vitale, CPAM, mutuelle, et demandes de remboursement.</p>
+                </article>
+                <article class="service-card">
+                    <i class="service-icon fa-solid fa-house-chimney" aria-hidden="true"></i> <h3>Logement & Énergie</h3>
+                    <p>Aides au logement CAF, demandes APL, et chèque énergie.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="bg-light" id="infos">
+            <div class="inner-container">
+                <h2 class="section-title">Informations Pratiques</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="service-card">
+                        <h3><i class="fa-solid fa-clock"></i> Horaires</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>Lundi - Vendredi : 9h - 17h</li>
+                            <li>Samedi : 9h - 12h</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3><i class="fa-solid fa-handshake"></i> Engagements</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>Accueil gratuit</li>
+                            <li>Confidentialité garantie</li>
+                            <li>Accès PMR</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">Contactez-nous</h2>
+            <div class="contact-form">
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="nom">Nom et Prénom *</label>
+                        <input type="text" id="nom" name="nom" required aria-required="true" autocomplete="name">
+                        <span class="error-message" id="error-nom"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+                        <span class="error-message" id="error-email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input 
+                            type="tel" 
+                            id="telephone" 
+                            name="telephone" 
+                            autocomplete="tel"
+                            pattern="^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$"
+                            title="Veuillez entrer un numéro de téléphone valide (ex: 06 12 34 56 78 ou +33 6 12 34 56 78)"
+                        >
+                        <span class="error-message" id="error-telephone"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service concerné *</label>
+                        <select id="service" name="service" required aria-required="true">
+                            <option value="">Sélectionnez un service</option>
+                            <option value="Etat Civil">État Civil</option>
+                            <option value="Emploi & Formation">Emploi & Formation</option>
+                            <option value="Santé & Assurance">Santé & Assurance</option>
+                            <option value="Logement & Energie">Logement & Énergie</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                        <span class="error-message" id="error-service"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sujet">Sujet de votre demande *</label>
+                        <select id="sujet" name="sujet" required aria-required="true">
+                            <option value="">Sélectionnez un sujet</option>
+                            <option value="rdv">Demande de rendez-vous</option>
+                            <option value="info">Demande d'information</option>
+                            <option value="reclamation">Réclamation</option>
+                        </select>
+                        <span class="error-message" id="error-sujet"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Votre message *</label>
+                        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                        <span class="error-message" id="error-message"></span>
+                    </div>
+                    <button type="submit" class="submit-button">Envoyer la demande</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <p>10 impasses de montededou, 81130 mailhoc</p>
+        <p>&copy; 2025 Admin Sophie - <a href="#">Mentions légales</a></p>
+    </footer>
+
+    <script src="app.js"></script> </body>
+</html>

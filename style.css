@@ -1,0 +1,289 @@
+/* --- Variables et Reset --- */
+:root {
+    /* Couleurs France Service (DSFR) */
+    --primary: #000091; /* Bleu France */
+    --primary-dark: #000074;
+    --primary-light: #6A6AF4; /* Clair pour les hover/focus */
+    --secondary: #f3f6f9; /* Gris très clair fond */
+    --white: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+    --shadow-md: 0 8px 25px rgba(0,0,0,0.1); /* Ombre plus prononcée */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Focus visible pour la navigation au clavier */
+*:focus-visible {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+
+/* ----------------------------------------------------------------
+   Styles pour le Site Public (index.html)
+   ---------------------------------------------------------------- */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--white);
+}
+
+/* Header & Nav */
+.header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 100%; 
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-site {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: white;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem;
+    transition: opacity 0.2s;
+}
+
+nav a:hover { opacity: 0.8; text-decoration: underline; }
+
+/* Hero Section */
+.hero {
+    /* Nouveau dégradé pour un effet plus doux */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 150%);
+    color: var(--white);
+    padding: 7rem 2rem; /* Plus de hauteur */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+/* Ajout d'un pseudo-élément pour un motif subtil si souhaité */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 { 
+    font-size: 3.5rem; /* Titre plus impactant */
+    margin-bottom: 1.5rem; 
+    line-height: 1.2; 
+    font-weight: 800;
+}
+.hero p { 
+    font-size: 1.35rem; /* Paragraphe plus grand */
+    margin-bottom: 2.5rem; 
+    opacity: 0.95; 
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary);
+    padding: 1.1rem 3rem; /* Plus grand */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.cta-button:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Sections Générales */
+.section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+.section-title { 
+    text-align: center; 
+    font-size: 2.5rem; 
+    color: var(--primary); 
+    margin-bottom: 3rem; 
+    font-weight: 800; /* Titres plus marqués */
+}
+.bg-light { background-color: var(--secondary); width: 100%; max-width: none; }
+.bg-light .inner-container { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+
+/* Grille Services & Étapes */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 2.5rem; /* Plus de padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Ombre plus douce */
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.service-card:hover { 
+    transform: translateY(-8px); /* Effet plus prononcé au survol */
+    border-color: var(--primary-light); 
+    box-shadow: var(--shadow-md); 
+}
+
+.service-icon {
+    font-size: 3rem; /* Icônes plus grandes */
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--primary);
+}
+
+.service-card h3 { 
+    color: var(--primary); 
+    margin-bottom: 1rem; 
+    font-weight: 700;
+}
+
+/* NOUVEAUX STYLES : Étapes (How it works) */
+.step-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--primary); /* Ligne d'accentuation */
+    text-align: center;
+}
+.step-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
+}
+.step-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* --- Mise à jour dans la section Styles pour le Site Public (index.html) --- */
+
+/* Formulaire (Esthétique plus premium) */
+.contact-form {
+    background: var(--white);
+    padding: 3.5rem; 
+    border-radius: 16px; /* Bords encore plus arrondis */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Ombre plus nette */
+    max-width: 750px; /* Légèrement plus large pour les champs */
+    margin: 0 auto;
+    border-top: 5px solid var(--primary-light); /* Ligne d'accentuation en haut */
+}
+
+.form-group { 
+    margin-bottom: 1.75rem; /* Plus d'espace entre les groupes de champs */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark); /* Label plus foncé pour une meilleure lisibilité */
+    font-weight: 600;
+    font-size: 1.3rem; /* Légèrement plus grand */
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 1rem; 
+    border: 1px solid #d1d5db; 
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--white); 
+    border: 1px solid #d1d5db; 
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--primary); /* Bleu France au focus */
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(0, 0, 145, 0.15); /* Anneau de focus bleu plus clair */
+}
+
+/* On s'assure que le fond du formulaire est gris clair et le conteneur du formulaire est blanc */
+.section-contact-form {
+    background-color: var(--secondary); /* Gris clair en arrière-plan */
+}
+
+/* Titre du formulaire */
+#contact-title {
+    color: var(--primary);
+    font-size: 3rem; /* Titre plus grand pour attirer l'attention */
+    margin-bottom: 1.5rem;
+}
+
+.submit-button {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
